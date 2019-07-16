@@ -39,7 +39,6 @@ public class SqlServerTableValuedParameter {
 				}
 			}
 		} catch (Exception e) {
-			System.out.println();
 			e.printStackTrace();
 		}
 	}
