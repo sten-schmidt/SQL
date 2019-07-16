@@ -1,6 +1,6 @@
 ﻿USE [DevTest]
 GO
-/****** Object:  StoredProcedure [dbo].[spTextSearchGermanPhonebook]    Script Date: 16.07.2019 16:54:31 ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
