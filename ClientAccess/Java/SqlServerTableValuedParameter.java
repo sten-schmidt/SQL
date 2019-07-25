@@ -3,6 +3,9 @@ package net.stenschmidt.sqlexamples.mssql.java;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.Date;
+
 import com.microsoft.sqlserver.jdbc.SQLServerDataTable;
 import com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement;
 
@@ -22,10 +25,13 @@ public class SqlServerTableValuedParameter {
 				table.addColumnMetadata("ID", java.sql.Types.INTEGER);
 				table.addColumnMetadata("DirPath", java.sql.Types.VARCHAR);
 				table.addColumnMetadata("FileCount", java.sql.Types.INTEGER);
+				table.addColumnMetadata("ChangeDate", java.sql.Types.TIMESTAMP); //works only with datetime2?
 
-				table.addRow(1, "C:\\foo\\bar", 2);
-				table.addRow(2, "D:\\Data", 2343);
-				table.addRow(3, "/var/log/messages", 4711);
+				Timestamp ts = new Timestamp(new Date().getTime());
+								
+				table.addRow(1, "C:\\foo\\bar", 2, ts);
+				table.addRow(2, "D:\\Data", 2343, ts);
+				table.addRow(3, "/var/log/messages", 4711, ts);
 
 				String sql = "DECLARE @RC INT = NULL; EXECUTE @RC = [dbo].[spInsertToTableB] ?; SELECT @RC AS Result";
 

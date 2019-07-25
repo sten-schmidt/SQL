@@ -7,6 +7,7 @@ CREATE TABLE [dbo].[TableB](
 	[ID] [int] NOT NULL,
 	[DirPath] [varchar](1024) NOT NULL,
 	[FileCount] [int] NOT NULL,
+	[ChangeDate] [datetime] NULL,
 PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -18,6 +19,7 @@ CREATE TYPE [dbo].[TabTypeB] AS TABLE(
 	[ID] [int] NOT NULL,
 	[DirPath] [varchar](1024) NOT NULL,
 	[FileCount] [int] NOT NULL,
+	[ChangeDate] [datetime2] NULL,
 	PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -34,7 +36,8 @@ BEGIN
 	DECLARE @result INT = 0;
 
 	INSERT INTO dbo.TableB
-	SELECT t.ID, t.DirPath, t.FileCount FROM @tab t
+	SELECT t.ID, t.DirPath, t.FileCount, CAST(t.ChangeDate AS DATETIME)
+		FROM @tab t
 
 	SELECT @result = COUNT(*) FROM dbo.TableB;
 
