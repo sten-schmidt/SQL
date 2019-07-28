@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Timestamp;
-import java.util.Date;
-
 import com.microsoft.sqlserver.jdbc.SQLServerDataTable;
 import com.microsoft.sqlserver.jdbc.SQLServerPreparedStatement;
 
@@ -27,7 +25,7 @@ public class SqlServerTableValuedParameter {
 				table.addColumnMetadata("FileCount", java.sql.Types.INTEGER);
 				table.addColumnMetadata("ChangeDate", java.sql.Types.TIMESTAMP); //works only with datetime2?
 
-				Timestamp ts = new Timestamp(new Date().getTime());
+				Timestamp ts = new Timestamp(System.currentTimeMillis());
 								
 				table.addRow(1, "C:\\foo\\bar", 2, ts);
 				table.addRow(2, "D:\\Data", 2343, ts);
