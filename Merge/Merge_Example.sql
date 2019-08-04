@@ -26,7 +26,7 @@ INSERT INTO @sourceData ([KEY], [VALUE]) VALUES ('KeyNew','ValueNew');
 
 SELECT ID, [KEY], [VALUE] FROM @sourceData;
 /*
-ID	KEY		VALUE
+ID	KEY	VALUE
 =====================
 1	Key1	Value1
 2	Key3	Value3
@@ -35,7 +35,7 @@ ID	KEY		VALUE
 
 SELECT ID, [KEY], [VALUE] FROM @targetData;
 /*
-ID	KEY		VALUE
+ID	KEY	VALUE
 1	Key1	Value1
 2	Key2	Value2
 3	Key3	Value3
