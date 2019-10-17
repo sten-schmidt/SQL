@@ -1,2 +1,2 @@
-# TSQL
-TSQL Examples
+# SQL
+SQL Examples
